@@ -8,7 +8,7 @@ import os
 import sys
 
 #docxファイルの文字数、画像数の統計量を計算
-def calsDocxStats(fileheader):
+def calcDocxStats(fileheader):
 	#docxの中身を見るためにzip形式にし解凍
 	shutil.copy(fileheader+".docx", fileheader+".zip")
 	with zipfile.ZipFile(fileheader+".zip",'r') as inputFile:
@@ -50,6 +50,6 @@ if __name__ == '__main__':
 	#計測するファイル名
 	docx_filename = input("docxファイル名を入力してください。>")
 	fileheader = docx_filename.split(".docx")[0]
-	img_n, moji_n = calsDocxStats(fileheader) #docxファイルの文字数、画像数の統計量を計算
+	img_n, moji_n = calcDocxStats(fileheader) #docxファイルの文字数、画像数の統計量を計算
 	print("画像数は%dです。"%img_n)
 	print("文字数は%dです。"%moji_n)
